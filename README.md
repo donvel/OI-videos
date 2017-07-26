@@ -46,8 +46,42 @@ Kiedy mamy co trzeba, należy wywołać:
 wtedy skrypt będzie wypisywał i wykonywał polecenia,
 które kolejno stworzą folder *folder-docelowy*,
 a następnie użyją ffmpeg do wycięcia ujęć i zapiszą je w nim w formacie
-*`(numer linii)\_(opis ujęcia).mp4*.
+*(numer linii)\_(opis ujęcia).mp4*.
 
-#### Wycinanie kardów
+#### Sklejanie kadrów.
 
-ad
+Do sklejania kadrów służy skrypt [run\_blender.sh](run_blender.sh) wywołujący
+kopię kodu w pliku [make\_movie.py](make_movie.py) wewnątrz Blendera.
+
+Zadaniem tego skryptu jest połączenie poszczególnych ujęć oraz
+dodanie czołówki, tyłówki, paska z afiliacją i przejść.
+
+Ścieżki do potrzebnych plików oraz parametry (typu długość
+przejść, czas wyświetlania paska z afiliacją) konfiguruje
+się w pliku [config.ini](config.ini).
+Pomysł jest taki, żeby w sekcji *DEFAULT* wpisywać ustawienia dla większej
+liczby filmów (np. omówienia z całego konkursu), a potem dodawać
+sekcje dla poszczególnych zadań z ustawieniami per omówienie.
+W takich sekcjach można też nadpisywać ustawienia w *DEFAULT*,
+sposób parsowania tego pliku jest opisany
+[https://docs.python.org/3.5/library/configparser.html](tutaj).
+
+Należy wykonać
+```
+./run_blender.sh id
+```
+gdzie id jest nagłówkiem sekcji zawierającej odpowiednią konfigurację
+w pliku config.ini.
+Po jego wykonaniu otwiera się gotowy projekt Blendera z widokiem skonfigurowanym
+do edycji wideo. Można oglądać go viewporcie, ewentualnie wprowadzać poprawki
+w config.ini (kliknięcie *Run script* na nowo tworzy projekt z *config.ini*)
+lub ręcznie (wymaga to pewnej znajomości Blendera). Kiedy projekt jest już
+gotowy do renderowania, należy kliknąć przycisk *Animation* w panelu
+*Properties* w prawym dolnym rogu.
+
+#### Wskazówka na wszelki wypadek
+Gdyby ktoś chciał modyfikować zawartość pliku *make_movie.py*, to
+przyda się informacja, że skrypt *run_blender.sh* nie ładuje go z dysku,
+ale korzysta z jego kopii włączonej w blenderowy plik *make_movie.blend*.
+Żeby uzyskać jakieś nowe rezultaty, należy uaktualnić blok tekstowy 
+*make_movie.py* w blenderowym edytorze tekstu.
