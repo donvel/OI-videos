@@ -64,7 +64,7 @@ liczby filmów (np. omówienia z całego konkursu), a potem dodawać
 sekcje dla poszczególnych zadań z ustawieniami per omówienie.
 W takich sekcjach można też nadpisywać ustawienia w *DEFAULT*,
 sposób parsowania tego pliku jest opisany
-[https://docs.python.org/3.5/library/configparser.html](tutaj).
+[tutaj](https://docs.python.org/3.5/library/configparser.html).
 
 Należy wykonać
 ```
