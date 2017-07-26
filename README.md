@@ -66,7 +66,10 @@ W takich sekcjach można też nadpisywać ustawienia w *DEFAULT*,
 sposób parsowania tego pliku jest opisany
 [tutaj](https://docs.python.org/3.5/library/configparser.html).
 
-Należy wykonać
+Należy ustawić odpowiednio ścieżki *CONFIG_FILE*, *BLENDER_EXEC*
+i *BLENDER_FILE*
+w pliku *run_blender.sh*,
+a następnie wykonać
 ```
 ./run_blender.sh id
 ```
